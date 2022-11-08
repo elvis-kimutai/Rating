@@ -17,6 +17,8 @@ const Header = () => {
                         <NavLink to="/services"><li>Services</li></NavLink>
                         <NavLink to="/blog"><li>Blog</li></NavLink>
                         <NavLink to="/contact"><li>Contact Us</li></NavLink>
+                        <NavLink to="/login"><li>Login</li></NavLink>
+                        <NavLink to="/signup"><li>SignUp</li></NavLink>
                     </ul>
                 </div>
                 <div className='flex'>
@@ -29,7 +31,9 @@ const Header = () => {
                 <NavLink to="/" className='mr-4 font-semibold'><li>Home</li></NavLink>
                     <NavLink to="/services" className='mr-4 font-semibold'><li>Services</li></NavLink>
                     <NavLink to="/blog" className='mr-4 font-semibold'><li>Blog</li></NavLink>
-                    <NavLink to="/contact" className='font-semibold'><li>Contact Us</li></NavLink>
+                    <NavLink to="/contact" className='mr-4 font-semibold'><li>Contact Us</li></NavLink>
+                    <NavLink to="/login" className='mr-4 font-semibold'><li>Login</li></NavLink>
+                    <NavLink to="/signup" className='mr-4 font-semibold'><li>SignUp</li></NavLink>
                 </ul>
             </div>
             <div className="navbar-end">
