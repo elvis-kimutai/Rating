@@ -2,15 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiEBike2Fill } from "react-icons/ri";
 import { IoCart } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const ServicesCollection = () => {
-    const [services, setServices] = useState([]);
-    useEffect(()=>{
-        fetch('services.json')
-        .then(res=> res.json())
-        .then(data=>setServices(data))
-    }, [])
+    const services = useLoaderData();
+    
     return (
         <div className='my-16'>
             <div className='mx-auto md:w-11/12'>
@@ -32,7 +28,7 @@ const ServicesCollection = () => {
                                     </div>
                                     <p>{service.details.specialties.slice(0, 100) + '...'}</p>
                                     <div className="card-actions justify-end">
-                                    <Link className="badge">More</Link>
+                                    <Link to={`/services/${service._id}`} className="badge">More</Link>
                                     </div>
                                 </div>
                             </div>

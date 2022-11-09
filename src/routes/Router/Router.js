@@ -5,6 +5,7 @@ import Home from "../../components/Pages/Home/Home/Home";
 import HomeServices from "../../components/Pages/Home/HomeServices/HomeServices";
 import Login from "../../components/Pages/Login/Login";
 import Services from "../../components/Pages/Services/Services/Services";
+import ServiceSingle from "../../components/Pages/Services/SeviceSingle/ServiceSingle";
 import SignUp from "../../components/Pages/SignUp/SignUp";
 import AddService from "../../components/Pages/User/AddService/AddService";
 import ReviewCollection from "../../components/Pages/User/ReviewCollection/ReviewCollection";
@@ -20,13 +21,18 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                loader: async ()=> fetch('http://localhost:5000/services'),
+                loader: async ()=> fetch('http://localhost:5000/homeservices'),
                 element: <Home></Home>
             },
             {
                 path: '/services',
                 loader: async ()=> fetch('http://localhost:5000/services'),
                 element: <Services></Services>
+            },
+            {
+                path: '/services/:_id',
+                loader: async({params})=>fetch(`http://localhost:5000/services/${params._id}`),
+                element: <ServiceSingle></ServiceSingle>
             },
             {
                 path: '/blog',

@@ -8,15 +8,8 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 
 const HomeServices = () => {
-
     const services = useLoaderData();
-    console.log(services);
-    // const [services, setServices] = useState([]);
-    // useEffect(()=>{
-    //     fetch('services.json')
-    //     .then(res=> res.json())
-    //     .then(data=>setServices(data))
-    // }, [])
+    
     return (
         <div className='my-16'>
             <div className='text-center my-12'>
@@ -48,6 +41,9 @@ const HomeServices = () => {
                             </div>
                         </div>)
                     }
+                </div>
+                <div className='text-center mt-10'>
+                    <Link to="/services" className='btn red-button'>Load More</Link>
                 </div>
             </div>
         </div>
