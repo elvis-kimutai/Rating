@@ -57,7 +57,7 @@ const Header = () => {
                     user?.uid ? 
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
-                        <NavLink to="/profile" className="justify-between bg-transparent text-black">
+                        <NavLink to="/edit-profile" className="justify-between bg-transparent text-black">
                             Profile
                             <span className="badge">New</span>
                         </NavLink>

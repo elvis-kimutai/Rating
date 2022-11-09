@@ -20,19 +20,19 @@ const SidebarProfile = () => {
             <div className='mt-5'>
                 <ul className="menu bg-base-100 w-64 p-2 mx-auto rounded-box">
                     <li className='mb-3'>
-                        <NavLink className="sidebar-nav">
+                        <NavLink to='/edit-profile' className="sidebar-nav">
                         <FaUserEdit className='h-5 w-5'/>
                         Edit profile
                         </NavLink>
                     </li>
                     <li className='mb-3'>
-                        <NavLink className="sidebar-nav">
+                        <NavLink to='/add-service' className="sidebar-nav">
                         <FaAd className='h-5 w-5'/>
                         Add service
                         </NavLink>
                     </li>
                     <li className='mb-3'>
-                        <NavLink className="sidebar-nav">
+                        <NavLink to='/my-reviews' className="sidebar-nav">
                         <MdOutlineRateReview className='h-5 w-5'/>
                         My reviews
                         </NavLink>

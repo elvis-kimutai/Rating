@@ -4,9 +4,12 @@ import Home from "../../components/Pages/Home/Home/Home";
 import Login from "../../components/Pages/Login/Login";
 import Services from "../../components/Pages/Services/Services/Services";
 import SignUp from "../../components/Pages/SignUp/SignUp";
-import Profile from "../../components/Pages/User/Profile/Profile";
+import AddService from "../../components/Pages/User/AddService/AddService";
+import ReviewCollection from "../../components/Pages/User/ReviewCollection/ReviewCollection";
+import EditProfile from "../../components/Pages/User/SidebarProfile/EditProfile/EditProfile";
 import NotFoundPage from "../../components/Shared/NotFoundPage/NotFoundPage";
 import Main from "../../layout/Main";
+import User from "../../layout/User";
 
 const Router = createBrowserRouter([
     {
@@ -32,11 +35,25 @@ const Router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            }
+        ]
+    },
+    {
+        path: '/',
+        element: <User></User>,
+        children: [
+            {
+                path: '/edit-profile',
+                element: <EditProfile></EditProfile>
             },
             {
-                path: '/profile',
-                element: <Profile></Profile>
+                path: '/add-service',
+                element: <AddService></AddService>
             },
+            {
+                path: '/my-reviews',
+                element: <ReviewCollection></ReviewCollection>
+            }
         ]
     },
     {
