@@ -1,12 +1,32 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../../context/AuthProvider';
 
 const EditProfile = () => {
-    const {user} = useContext(AuthContext);
+    const {user, updateUserProfile, setLoading} = useContext(AuthContext);
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        handleUpdateProfile(name, photoURL);
+        form.reset();
+        setLoading(false);
+    }
+
+    const handleUpdateProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(()=>{})
+        .catch(error=>console.error(error))
+    }
+
     return (
         <div className="card flex-shrink-0 w-full max-w-xl mx-auto shadow-2xl bg-base-100">
-            <form  className="card-body form pb-5">
+            <form onSubmit={handleSubmit}  className="card-body form pb-5">
                 <h2 className='font-semibold mb-4 ml-1'>Edit profile</h2>
                 <div className="form-control">
                     <label className="label">
@@ -24,7 +44,7 @@ const EditProfile = () => {
                     <label className="label">
                         <span className="label-text">Profile Image Link</span>
                     </label>
-                    <input type="text" name='profile-image' placeholder="Profile image link" className="input input-bordered" />
+                    <input type="text" name='photoURL' placeholder="Profile image link" className="input input-bordered" />
                 </div>
                 <div className="form-control mt-4">
                     <input type="submit" className='btn' value="Update Profile" />
