@@ -1,10 +1,22 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../../logo.png';
 import avatar from '../../../assets/images/user.png';
+import { AuthContext } from '../../../context/AuthProvider';
 import './Header.css';
 
 const Header = () => {
+    const {user, signOutUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleSignOut = () =>{
+        signOutUser()
+        .then(()=>{
+            navigate("/");
+        })
+        .catch(error=> console.error(error))
+    }
+
     return (
         <div className="navbar px-6 py-4 lg:px-20">
             <div className="navbar-start">
@@ -32,28 +44,37 @@ const Header = () => {
                     <NavLink to="/services" className='mr-4 font-semibold'><li>Services</li></NavLink>
                     <NavLink to="/blog" className='mr-4 font-semibold'><li>Blog</li></NavLink>
                     <NavLink to="/contact" className='mr-4 font-semibold'><li>Contact Us</li></NavLink>
-                    <NavLink to="/login" className='mr-4 font-semibold'><li>Login</li></NavLink>
-                    <NavLink to="/signup" className='mr-4 font-semibold'><li>SignUp</li></NavLink>
                 </ul>
             </div>
             <div className="navbar-end">
             <div className="dropdown dropdown-end">
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                     <div className="w-10 rounded-full">
-                    <img src={avatar} alt="User" />
+                        {user?.photoURL ? <img src={user.photoURL} alt="" /> :  <img src={avatar} alt="User" />}
                     </div>
                 </label>
-                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li>
-                    <NavLink className="justify-between bg-transparent text-black">
-                        Profile
-                        <span className="badge">New</span>
-                    </NavLink>
-                    </li>
-                    <li><NavLink className="bg-transparent text-black">Settings</NavLink></li>
-                    <li><NavLink className="bg-transparent text-black">Logout</NavLink></li>
-                </ul>
-                </div>
+                {
+                    user?.uid ? 
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                        <NavLink to="/profile" className="justify-between bg-transparent text-black">
+                            Profile
+                            <span className="badge">New</span>
+                        </NavLink>
+                        </li>
+                        <li><NavLink className="bg-transparent text-black">Settings</NavLink></li>
+                        <li onClick={handleSignOut}><NavLink className="bg-transparent text-black">Logout</NavLink></li>
+                    </ul> : <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li>
+                        <NavLink to="/login" className="justify-between bg-transparent text-black">
+                            Login
+                        </NavLink>
+                        </li>
+                        <li><NavLink to="/signup" className="bg-transparent text-black">Sign Up</NavLink></li>
+                    </ul>
+                }
+                
+            </div>
             </div>
         </div>
     );

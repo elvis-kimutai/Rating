@@ -4,6 +4,7 @@ import Home from "../../components/Pages/Home/Home/Home";
 import Login from "../../components/Pages/Login/Login";
 import Services from "../../components/Pages/Services/Services/Services";
 import SignUp from "../../components/Pages/SignUp/SignUp";
+import Profile from "../../components/Pages/User/Profile/Profile";
 import NotFoundPage from "../../components/Shared/NotFoundPage/NotFoundPage";
 import Main from "../../layout/Main";
 
@@ -31,7 +32,11 @@ const Router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
-            }
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
+            },
         ]
     },
     {

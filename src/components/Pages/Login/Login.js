@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { FcGoogle } from "react-icons/fc";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../../assets/images/login.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -8,6 +8,9 @@ import { AuthContext } from '../../../context/AuthProvider';
 const Login = () => {
     
     const {loginUser, googleSignIn, setLoading} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     
     const handleSubmit = event => {
         event.preventDefault();
@@ -20,6 +23,8 @@ const Login = () => {
         .then(result=> {
             const user = result.user;
             console.log(user);
+            setLoading(false)
+            navigate(from, {replace: true});
         })
         .catch(error=> console.error(error))
     }
@@ -29,6 +34,7 @@ const Login = () => {
         .then(result=> {
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true});
         })
         .catch(error=> console.error(error))
     }

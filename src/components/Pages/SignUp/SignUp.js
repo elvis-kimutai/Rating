@@ -1,12 +1,18 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../../assets/images/register.jpg';
 import { FcGoogle } from "react-icons/fc";
 import './SignUp.css';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const SignUp = () => {
-    const {signupUser, googleSignIn} = useContext(AuthContext);
+    const {signupUser, googleSignIn, setLoading} = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
+
+
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
@@ -27,6 +33,9 @@ const SignUp = () => {
         .then(result=> {
             const user = result.user;
             console.log(user);
+            setLoading(false);
+            navigate(from, {replace: true});
+
         })
         .catch(error=> console.error(error))
     }
