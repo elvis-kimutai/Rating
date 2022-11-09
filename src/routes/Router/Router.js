@@ -1,6 +1,8 @@
+import { async } from "@firebase/util";
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../../components/Pages/Blog/Blog/Blog";
 import Home from "../../components/Pages/Home/Home/Home";
+import HomeServices from "../../components/Pages/Home/HomeServices/HomeServices";
 import Login from "../../components/Pages/Login/Login";
 import Services from "../../components/Pages/Services/Services/Services";
 import SignUp from "../../components/Pages/SignUp/SignUp";
@@ -18,10 +20,12 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/",
+                loader: async ()=> fetch('http://localhost:5000/services'),
                 element: <Home></Home>
             },
             {
                 path: '/services',
+                loader: async ()=> fetch('http://localhost:5000/services'),
                 element: <Services></Services>
             },
             {
