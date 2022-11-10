@@ -22,6 +22,7 @@ const ServiceSingle = () => {
             userName: user.displayName,
             userImg: user.photoURL,
             serviceId: _id,
+            serviceTitle: title,
             serviceImgURL: image_url,
             details: review
         }
@@ -114,7 +115,7 @@ const ServiceSingle = () => {
                     </div>
                 </div>
                 <div className="divider"></div>
-                <div>
+                <div className='mb-5'>
                     <h2 className='font-semibold text-2xl my-3'>Add Reviews</h2>
                     {
                     user?.uid ? 
