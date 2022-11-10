@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { BsStarFill, BsStarHalf } from 'react-icons/bs';
-import { FaRegStar } from 'react-icons/fa';
 import { RiEBike2Line } from 'react-icons/ri';
 import { BiCartAlt } from 'react-icons/bi';
 import { Link, useLoaderData } from 'react-router-dom';
@@ -10,7 +9,49 @@ import { AuthContext } from '../../../../context/AuthProvider';
 const ServiceSingle = () => {
     const {user} = useContext(AuthContext)
     const service = useLoaderData();
-    const {title, image_url, rating, location, amenities, details} = service;
+    const {_id, title, image_url, rating, location, amenities, details} = service;
+    const [reviews, setReviews] = useState([]);
+
+
+    const handleSubmit = event =>{
+        event.preventDefault();
+        const form = event.target;
+        const review = form.review.value;
+        const data = {
+            userId: user.uid,
+            userName: user.displayName,
+            userImg: user.photoURL,
+            serviceId: _id,
+            serviceImgURL: image_url,
+            details: review
+        }
+        fetch('http://localhost:5000/reviews/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+                form.reset();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    useEffect(()=>{
+    fetch(`http://localhost:5000/reviews/${_id}`)
+        .then(res=> res.json())
+        .then(data=> setReviews(data))
+    },[reviews])
+
+    
+
+
+
     return (
         <div>
             <div className="hero hero-service mb-3" style={{ backgroundImage: `url("${image_url}")` }}>
@@ -52,16 +93,34 @@ const ServiceSingle = () => {
                 
                 <div>
                     <h2 className='font-semibold text-2xl mb-2'>Recommended Reviews</h2>
-                    Reviews
+                    <div>
+                        {reviews ? reviews.map(review=> 
+                            <div key={review._id} className="card bg-base-100 shadow-xl my-4">
+                                <div className="card-body">
+                                    <>  
+                                        <p className="card-title text-sm">
+                                            <div className="avatar">
+                                                <div className="w-8 rounded-full">
+                                                    <img src={review.userImg} alt=""/>
+                                                </div>
+                                            </div>
+                                            {review.userName} <BsStarFill className='color-red'/><BsStarFill className='color-red'/><BsStarFill className='color-red'/><BsStarFill className='color-red'/><BsStarHalf className='color-red'/>
+                                        </p>
+                                    </>
+                                    <p>{review.details}</p>
+                                </div>
+                            </div>) : <h4>No review yet</h4>  
+                        }
+                    </div>
                 </div>
                 <div className="divider"></div>
                 <div>
                     <h2 className='font-semibold text-2xl my-3'>Add Reviews</h2>
                     {
                     user?.uid ? 
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <div className="form-control mb-4 w-6/12">
-                            <textarea className="textarea textarea-bordered" placeholder="Write review"></textarea>
+                            <textarea className="textarea textarea-bordered" name='review' placeholder="Write review"></textarea>
                         </div>
                         <input type="submit" className='btn red-button' value="Submit review" />
                     </form>: 
