@@ -6,7 +6,7 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 const ServicesCollection = () => {
     const services = useLoaderData();
-    
+
     return (
         <div className='my-16'>
             <div className='mx-auto md:w-11/12'>
@@ -20,7 +20,7 @@ const ServicesCollection = () => {
                                     {service.title}
                                     </h2>
                                     <div className='flex items-center'>
-                                    <BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarHalf className='color-red mr-2'/> {service.rating.number}
+                                    <BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarHalf className='color-red mr-2'/> {service?.rating?.number}
                                     </div>
                                     <div className='flex items-center'>
                                         <span className='text-sm flex items-center mr-3'><RiEBike2Fill className='color-red mr-2'/>{service?.amenities?.delivery}</span>

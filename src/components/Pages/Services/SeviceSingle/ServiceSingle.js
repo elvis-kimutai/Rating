@@ -19,7 +19,7 @@ const ServiceSingle = () => {
                     <div className="my-16">
                         <h1 className="mb-5 text-5xl font-bold">{title}</h1>
                         <div className='flex items-center text-xl font-semibold'>
-                            <BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarHalf className='color-red mr-2'/> {rating.number}
+                            <BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarFill className='color-red mr-1'/><BsStarHalf className='color-red mr-2'/> {rating?.number}
                         </div>
                     </div>
                 </div>
@@ -32,15 +32,8 @@ const ServiceSingle = () => {
                     </div>
                 </div>
                 <div className="divider"></div>
-                <div className='mb-2'>
-                    <h2 className='font-semibold text-2xl mb-2'>Amenities</h2>
-                    <div className='flex text-semibold text-md'>
-                        <span className='flex items-center mr-10'><RiEBike2Line className='mr-2'/>{amenities.delivery}</span>
-                        <span className='flex items-center'><BiCartAlt className='mr-2'/></span>{amenities.takeout}
-                    </div>
-                </div>
-                <div className="divider"></div>
-                <div className='mb-2'>
+                {amenities ? <div>
+                    <div className='mb-2'>
                     <h2 className='font-semibold text-2xl mb-3'>About the business</h2>
                     {details?.specialties && 
                     <div className='my-2'>
@@ -54,6 +47,9 @@ const ServiceSingle = () => {
                     </div>}
                 </div>
                 <div className="divider"></div>
+                </div> : <></>}
+                
+                
                 <div>
                     <h2 className='font-semibold text-2xl mb-2'>Recommended Reviews</h2>
                     Reviews
