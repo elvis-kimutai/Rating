@@ -20,17 +20,17 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                loader: async ()=> fetch('http://localhost:5000/homeservices'),
+                loader: async ()=> fetch('https://food-monster-server.vercel.app/homeservices'),
                 element: <Home></Home>
             },
             {
                 path: '/services',
-                loader: async ()=> fetch('http://localhost:5000/services'),
+                loader: async ()=> fetch('https://food-monster-server.vercel.app/services'),
                 element: <Services></Services>
             },
             {
                 path: '/services/:_id',
-                loader: async({params})=>fetch(`http://localhost:5000/services/${params._id}`),
+                loader: async({params})=>fetch(`https://food-monster-server.vercel.app/services/${params._id}`),
                 element: <ServiceSingle></ServiceSingle>
             },
             {
@@ -61,7 +61,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/my-reviews',
-                loader: async()=>fetch('http://localhost:5000/reviews'),
+                loader: async()=>fetch('https://food-monster-server.vercel.app/reviews'),
                 element: <PrivateRoute><ReviewCollection></ReviewCollection></PrivateRoute>
             }
         ]

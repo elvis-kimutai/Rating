@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Food Monster (React website) V0.1.0
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Live project link - https://food-monster-e9a9c.web.app/
+### Client side gitHub repository link - https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-masudcodex.git
+### Server side gitHub repository link - https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-masudcodex.git
 
-## Available Scripts
+## Developed with
+  - React - A javascript library for building user interfaces
+  - Create react app - A quick method to start developing a react application.
+  - [React Router](https://reactrouter.com/) - V6.4.1
+  - Tailwind CSS
+  - Daisy UI 
+  - Firebase - for authentication
+     - Authentication with Email & Password
+     - Google
+  - [React hot toast](https://react-hot-toast.com/) - has been used to show success & error notifications
+  - [React Icons](https://react-icons.github.io/react-icons/) has been used for icons
+  - React Photo View - has been used to zoom in photo
+  - MongoDB has been used to host data, get and delete data
 
-In the project directory, you can run:
 
-### `npm start`
+## Getting Started
+  
+Follow the following steps to get development environment running.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - git clone https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-masudcodex.git - to clone the repository from github
+  - npm install - to install node modules
+  - npm start - to continue building applications

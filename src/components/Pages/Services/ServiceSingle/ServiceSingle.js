@@ -28,7 +28,7 @@ const ServiceSingle = () => {
             serviceImgURL: image_url,
             details: review
         }
-        fetch('http://localhost:5000/reviews/', {
+        fetch('https://food-monster-server.vercel.app/reviews/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const ServiceSingle = () => {
     }
 
     useEffect(()=>{
-    fetch(`http://localhost:5000/reviews/${_id}`)
+    fetch(`https://food-monster-server.vercel.app/reviews/${_id}`)
         .then(res=> res.json())
         .then(data=> setReviews(data))
     },[reviews])
