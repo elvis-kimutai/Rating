@@ -18,7 +18,7 @@ const SidebarProfile = () => {
                 <h4 className='text-xl font-bold mt-2'>{user?.displayName && user?.displayName}</h4>
             </div>
             <div className='mt-5'>
-                <ul className="menu bg-base-100 w-64 p-2 mx-auto rounded-box">
+                <ul className="menu bg-base-100 w-full md:w-64 p-2 md:mx-auto rounded-box">
                     <li className='mb-3'>
                         <NavLink to='/edit-profile' className="sidebar-nav">
                         <FaUserEdit className='h-5 w-5'/>

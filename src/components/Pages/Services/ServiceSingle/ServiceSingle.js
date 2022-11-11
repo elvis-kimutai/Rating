@@ -5,6 +5,8 @@ import { BiCartAlt } from 'react-icons/bi';
 import { Link, useLoaderData } from 'react-router-dom';
 import './ServiceSingle.css';
 import { AuthContext } from '../../../../context/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const ServiceSingle = () => {
     const {user} = useContext(AuthContext)
@@ -35,7 +37,7 @@ const ServiceSingle = () => {
             })
             .then((response) => response.json())
             .then((data) => {
-                console.log('Success:', data);
+                toast.success('Review Added Successfully')
                 form.reset();
             })
             .catch((error) => {
@@ -69,7 +71,7 @@ const ServiceSingle = () => {
             <div className='mx-24'>
                 <div className='mt-10'>
                     <h2 className='font-semibold text-2xl'>Location</h2>
-                    <div className='w-6/12 my-2'>
+                    <div className='w-full md:w-6/12 my-2'>
                         <div>{location}</div>
                     </div>
                 </div>
@@ -120,10 +122,11 @@ const ServiceSingle = () => {
                     {
                     user?.uid ? 
                     <form onSubmit={handleSubmit}>
-                        <div className="form-control mb-4 w-6/12">
+                        <div className="form-control mb-4 w-full md:w-6/12">
                             <textarea className="textarea textarea-bordered" name='review' placeholder="Write review"></textarea>
                         </div>
                         <input type="submit" className='btn red-button' value="Submit review" />
+                        <Toaster />
                     </form>: 
                     <Link to="/login" className='btn red-button'>You must login to add a review</Link> 
                     

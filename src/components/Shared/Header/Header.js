@@ -43,7 +43,6 @@ const Header = () => {
                 <NavLink to="/" className='mr-4 font-semibold'><li>Home</li></NavLink>
                     <NavLink to="/services" className='mr-4 font-semibold'><li>Services</li></NavLink>
                     <NavLink to="/blog" className='mr-4 font-semibold'><li>Blog</li></NavLink>
-                    <NavLink to="/contact" className='mr-4 font-semibold'><li>Contact Us</li></NavLink>
                 </ul>
             </div>
             <div className="navbar-end">
@@ -59,10 +58,8 @@ const Header = () => {
                         <li>
                         <NavLink to="/edit-profile" className="justify-between bg-transparent text-black">
                             Profile
-                            <span className="badge">New</span>
                         </NavLink>
                         </li>
-                        <li><NavLink className="bg-transparent text-black">Settings</NavLink></li>
                         <li onClick={handleSignOut}><NavLink className="bg-transparent text-black">Logout</NavLink></li>
                     </ul> : <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li>

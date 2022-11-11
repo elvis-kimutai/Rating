@@ -3,18 +3,23 @@ import { BsStarFill, BsStarHalf } from "react-icons/bs";
 import { RiEBike2Fill } from "react-icons/ri";
 import { IoCart } from "react-icons/io5";
 import { Link, useLoaderData } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const ServicesCollection = () => {
     const services = useLoaderData();
 
     return (
-        <div className='my-16'>
+        <div className='my-8 md:my-16 mx-8 md:mx-0'>
             <div className='mx-auto md:w-11/12'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                     {
                         services.map(service=><div key={service._id}>
-                            <div className="card serviceCard w-full md:w-96 mx-8 md:mx-0 bg-base-100 shadow-xl">
-                                <figure><img src={service.image_url} alt="Shoes" /></figure>
+                            <div className="card serviceCard w-full md:mx-0 bg-base-100 shadow-xl">
+                                <PhotoProvider>
+                                    <PhotoView key={service._id} src={service.image_url}>
+                                        <figure><img src={service.image_url} alt="Shoes" /></figure>
+                                    </PhotoView>
+                                </PhotoProvider>
                                 <div className="card-body">
                                     <h2 className="card-title text-xl">
                                     {service.title}

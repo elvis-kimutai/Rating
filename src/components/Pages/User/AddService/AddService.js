@@ -1,5 +1,5 @@
 import React from 'react';
-import { MdDeliveryDining } from 'react-icons/md';
+import toast, { Toaster } from 'react-hot-toast';
 
 const AddService = () => {
     const handleSubmit = event => {
@@ -12,7 +12,6 @@ const AddService = () => {
         const website = form.website.value;
         const specialties = form.specialties.value;
         const history = form.history.value;
-        // console.log(title, imageURL, phone, website, specialties, history);
 
         const data = {
             title : title,
@@ -34,6 +33,7 @@ const AddService = () => {
         })
         .then((response) => response.json())
         .then((data) => {
+            toast.success('Service added successfully');
             console.log('Success:', data);
         })
         .catch((error) => {

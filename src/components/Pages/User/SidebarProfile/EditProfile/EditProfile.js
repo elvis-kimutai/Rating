@@ -25,7 +25,7 @@ const EditProfile = () => {
     }
 
     return (
-        <div className="card flex-shrink-0 w-full max-w-xl mx-auto shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full lg:max-w-xl mx-auto shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit}  className="card-body form pb-5">
                 <h2 className='font-semibold mb-4 ml-1'>Edit profile</h2>
                 <div className="form-control">

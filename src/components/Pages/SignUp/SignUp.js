@@ -4,6 +4,7 @@ import image from '../../../assets/images/register.jpg';
 import { FcGoogle } from "react-icons/fc";
 import './SignUp.css';
 import { AuthContext } from '../../../context/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const SignUp = () => {
     const {signupUser, googleSignIn, setLoading, updateUserProfile} = useContext(AuthContext);
@@ -24,10 +25,10 @@ const SignUp = () => {
         signupUser(email, password)
         .then(result=> {
             const user = result.user;
-            console.log(user);
             setError('');
             handleUpdateUserProfile(name);
             form.reset();
+            toast.success('Sign up successful!');
             navigate(from, {replace: true});
         })
         .catch(error=> setError(error))
@@ -37,7 +38,6 @@ const SignUp = () => {
         googleSignIn()
         .then(result=> {
             const user = result.user;
-            console.log(user);
             setLoading(false);
             navigate(from, {replace: true});
 
@@ -82,6 +82,7 @@ const SignUp = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input type="submit" className='btn' value="Sign Up" />
+                            <Toaster/>
                         </div>
                         <label className="label">
                                 <Link className="label-text-alt link link-hover color-red Error">{error}</Link>
@@ -91,6 +92,7 @@ const SignUp = () => {
                         <Link onClick={socialSignIn} className='social-login  ml-3 flex items-center'>
                         <FcGoogle className='mr-3'/>
                         Continue with Google
+                        <Toaster/>
                         </Link>
                     </div>
                     <div className='mx-auto mb-5'>
