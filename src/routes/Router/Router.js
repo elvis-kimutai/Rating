@@ -11,6 +11,7 @@ import EditProfile from "../../components/Pages/User/SidebarProfile/EditProfile/
 import NotFoundPage from "../../components/Shared/NotFoundPage/NotFoundPage";
 import Main from "../../layout/Main";
 import User from "../../layout/User";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const Router = createBrowserRouter([
     {
@@ -52,16 +53,16 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/edit-profile',
-                element: <EditProfile></EditProfile>
+                element: <PrivateRoute><EditProfile></EditProfile></PrivateRoute>
             },
             {
                 path: '/add-service',
-                element: <AddService></AddService>
+                element: <PrivateRoute><AddService></AddService></PrivateRoute>
             },
             {
                 path: '/my-reviews',
                 loader: async()=>fetch('http://localhost:5000/reviews'),
-                element: <ReviewCollection></ReviewCollection>
+                element: <PrivateRoute><ReviewCollection></ReviewCollection></PrivateRoute>
             }
         ]
     },

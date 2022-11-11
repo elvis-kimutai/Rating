@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import image from '../../../assets/images/register.jpg';
 import { FcGoogle } from "react-icons/fc";
@@ -6,26 +6,31 @@ import './SignUp.css';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const SignUp = () => {
-    const {signupUser, googleSignIn, setLoading} = useContext(AuthContext);
+    const {signupUser, googleSignIn, setLoading, updateUserProfile} = useContext(AuthContext);
+    const [error, setError] = useState('');
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/login";
 
 
 
     const handleSubmit = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
         
         signupUser(email, password)
         .then(result=> {
             const user = result.user;
             console.log(user);
+            setError('');
+            handleUpdateUserProfile(name);
+            form.reset();
+            navigate(from, {replace: true});
         })
-        .catch(error=> console.error(error))
+        .catch(error=> setError(error))
     }
 
     const socialSignIn = () => {
@@ -37,7 +42,18 @@ const SignUp = () => {
             navigate(from, {replace: true});
 
         })
-        .catch(error=> console.error(error))
+        .catch(error=> setError(error))
+    }
+
+
+    //--------Update User Profile-------//
+    const handleUpdateUserProfile=(name)=>{
+        const profile = {
+            displayName: name
+        }
+        updateUserProfile(profile)
+        .then(result=>{})
+        .then(error=> setError(error))
     }
 
     return (
@@ -67,6 +83,9 @@ const SignUp = () => {
                         <div className="form-control mt-6">
                             <input type="submit" className='btn' value="Sign Up" />
                         </div>
+                        <label className="label">
+                                <Link className="label-text-alt link link-hover color-red Error">{error}</Link>
+                        </label>
                     </form>
                     <div className='flex justify-center mb-5'>
                         <Link onClick={socialSignIn} className='social-login  ml-3 flex items-center'>

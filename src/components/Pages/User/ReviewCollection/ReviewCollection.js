@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../context/AuthProvider';
 import './ReviewCollection.css';
 
@@ -21,29 +21,6 @@ const ReviewCollection = () => {
         .then(data=> console.log(data))
     }
 
-    const handleReviewUpdate = event => {
-        event.preventDefault();
-        const form = event.target;
-        const review = form.review.value;
-        const data = {
-            id: userReviews._id,
-            details: review
-        }
-
-        fetch(`http://localhost:5000/reviews/${userReviews._id}`,{
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(res=>res.json())
-        .then(data=> console.log(data))
-    }
-
-
-
-    
 
     return (
         <div>
@@ -84,6 +61,9 @@ const ReviewCollection = () => {
                         {userRev?.details}
                         </td>
                         <td><b>{userRev?.userName}</b></td>
+                        <td>
+                            <Link className='btn red-button'>Edit review</Link>
+                        </td>
                         </tr>
                     )
                         }
