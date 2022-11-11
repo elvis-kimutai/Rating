@@ -1,14 +1,50 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../../context/AuthProvider';
+import './ReviewCollection.css';
 
 const ReviewCollection = () => {
     const {user} = useContext(AuthContext);
     const [userReviews, setUserReviews] = useState([]);
     useEffect(()=>{
-        fetch(`http://localhost:5000/${user.uid}/reviews`)
+        fetch(`http://localhost:5000/${user?.uid}/reviews`)
         .then(res=>res.json())
         .then(data=> setUserReviews(data))
-    },[user])
+    },[userReviews])
+
+
+    const handleDelete = (_id) => {
+        fetch(`http://localhost:5000/reviews/${_id}`,{
+            method: 'DELETE'
+        })
+        .then(res=>res.json())
+        .then(data=> console.log(data))
+    }
+
+    const handleReviewUpdate = event => {
+        event.preventDefault();
+        const form = event.target;
+        const review = form.review.value;
+        const data = {
+            id: userReviews._id,
+            details: review
+        }
+
+        fetch(`http://localhost:5000/reviews/${userReviews._id}`,{
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res=>res.json())
+        .then(data=> console.log(data))
+    }
+
+
+
+    
+
     return (
         <div>
             <h2 className='text-3xl font-semibold mb-5'>My Reviews</h2>
@@ -28,9 +64,9 @@ const ReviewCollection = () => {
                         {userReviews.map(userRev=> 
                         <tr key={userRev._id}>
                         <th>
-                        <label>
-                            <input type="checkbox" className="checkbox" />
-                        </label>
+                        <button onClick={()=>handleDelete(userRev._id)} className="btn btn-circle red-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
                         </th>
                         <td>
                         <div className="flex items-center space-x-3">

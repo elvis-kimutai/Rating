@@ -1,11 +1,9 @@
-import { async } from "@firebase/util";
 import { createBrowserRouter } from "react-router-dom";
 import Blog from "../../components/Pages/Blog/Blog/Blog";
 import Home from "../../components/Pages/Home/Home/Home";
-import HomeServices from "../../components/Pages/Home/HomeServices/HomeServices";
 import Login from "../../components/Pages/Login/Login";
 import Services from "../../components/Pages/Services/Services/Services";
-import ServiceSingle from "../../components/Pages/Services/SeviceSingle/ServiceSingle";
+import ServiceSingle from "../../components/Pages/Services/ServiceSingle/ServiceSingle";
 import SignUp from "../../components/Pages/SignUp/SignUp";
 import AddService from "../../components/Pages/User/AddService/AddService";
 import ReviewCollection from "../../components/Pages/User/ReviewCollection/ReviewCollection";
@@ -62,6 +60,7 @@ const Router = createBrowserRouter([
             },
             {
                 path: '/my-reviews',
+                loader: async()=>fetch('http://localhost:5000/reviews'),
                 element: <ReviewCollection></ReviewCollection>
             }
         ]

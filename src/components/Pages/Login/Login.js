@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { setAuthToken } from '../../../api/auth';
 import image from '../../../assets/images/login.png';
 import { AuthContext } from '../../../context/AuthProvider';
 
@@ -22,8 +23,8 @@ const Login = () => {
         loginUser(email, password)
         .then(result=> {
             const user = result.user;
-            console.log(user);
-            setLoading(false)
+            setLoading(false);
+            setAuthToken(user);
             navigate(from, {replace: true});
         })
         .catch(error=> console.error(error))
@@ -33,7 +34,7 @@ const Login = () => {
         googleSignIn()
         .then(result=> {
             const user = result.user;
-            console.log(user);
+            setAuthToken(user);
             navigate(from, {replace: true});
         })
         .catch(error=> console.error(error))
