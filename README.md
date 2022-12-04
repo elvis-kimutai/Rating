@@ -2,7 +2,7 @@
 
 ### Live project link - https://food-monster-e9a9c.web.app/
 ### Client side gitHub repository link - https://github.com/masudcodex/food-monster.git
-### Server side gitHub repository link - https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-masudcodex.git
+### Server side gitHub repository link - https://github.com/masudcodex/food-monster-server.git
 
 ## Developed with
   - React - A javascript library for building user interfaces
