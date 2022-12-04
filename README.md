@@ -1,7 +1,7 @@
 # Food Monster (React website) V0.1.0
 
 ### Live project link - https://food-monster-e9a9c.web.app/
-### Client side gitHub repository link - https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-masudcodex.git
+### Client side gitHub repository link - https://github.com/masudcodex/food-monster.git
 ### Server side gitHub repository link - https://github.com/Porgramming-Hero-web-course/b6a11-service-review-server-side-masudcodex.git
 
 ## Developed with
@@ -23,6 +23,6 @@
   
 Follow the following steps to get development environment running.
 
-  - git clone https://github.com/Porgramming-Hero-web-course/b6a11-service-review-client-side-masudcodex.git - to clone the repository from github
+  - git clone https://github.com/masudcodex/food-monster.git - to clone the repository from github
   - npm install - to install node modules
   - npm start - to continue building applications
