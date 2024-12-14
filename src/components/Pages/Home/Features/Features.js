@@ -8,17 +8,17 @@ const Features = () => {
            <div className='text-center mx-auto mb-5 md:mb-0'>
                 <FaSearch className='mx-auto w-10 h-10 mb-4 color-red'/>
                 <h4 className='text-2xl font-bold mb-1'>Search</h4>
-                <p>Search Restaurants</p>
+                <p>Search pub</p>
             </div> 
            <div className='text-center mx-auto mb-5 md:mb-0'>
                 <FaCheckCircle className='mx-auto w-10 h-10 mb-4 color-red'/>
                 <h4 className='text-2xl font-bold mb-1'>Review</h4>
-                <p>Compare Restaurants You Find</p>
+                <p>Compare pubs You Find</p>
             </div> 
            <div className='text-center mx-auto mb-5 md:mb-0'>
                 <RiWechatLine className='mx-auto w-10 h-10 mb-4 color-red'/>
                 <h4 className='text-2xl font-bold mb-1'>Connect</h4>
-                <p>Contact Restaurants You Like</p>
+                <p>Contact pubs You Like</p>
             </div> 
         </div>
     );

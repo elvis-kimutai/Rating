@@ -7,8 +7,8 @@ const ServicesBanner = () => {
             <div className="hero-overlay bg-opacity-70"></div>
             <div className="hero-content text-center text-neutral-content">
                 <div className="my-12">
-                    <h1 className="mb-5 text-5xl font-bold">Search Your Favorite Food</h1>
-                    <p className="mb-5">Find restaurants for free</p>
+                    <h1 className="mb-5 text-5xl font-bold">Search Your Favorite pub</h1>
+                    <p className="mb-5">Find pubs for free</p>
                     <div className="form-control flex flex-row">
                         <div className='mr-1 w-9/12'>
                             <input type="search" placeholder="Search…" className="input w-full text-black" />

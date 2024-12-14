@@ -82,7 +82,7 @@ const Login = () => {
                         </Link>
                     </div>
                     <div className='mx-auto mb-5'>
-                        <p>New to the Food Monster? <Link to="/signup" className='color-red'>Sign Up here</Link></p>
+                        <p>Are you new? <Link to="/signup" className='color-red'>Sign Up here</Link></p>
                     </div>
                 </div>
             </div>           

@@ -15,7 +15,7 @@ const HomeServices = () => {
         <div className='my-8 md:my-16 mx-8 md:mx-0'>
             <div className='text-center my-12'>
                 <h2 className='text-4xl font-bold color-red'>Popular this month in your city</h2>
-                <p className='text-gray-500 pt-5'>The easiest way to your favorite food</p>
+                <p className='text-gray-500 pt-5'>The easiest way to your favorite pub</p>
             </div>
             <div className='mx-auto md:w-11/12'>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>

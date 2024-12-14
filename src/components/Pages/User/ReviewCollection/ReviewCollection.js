@@ -34,7 +34,7 @@ const ReviewCollection = () => {
                     <tr>
                         <th>
                         </th>
-                        <th>Restaurant Name</th>
+                        <th>pub Name</th>
                         <th>Review</th>
                         <th>Reviewer</th>
                         <th></th>

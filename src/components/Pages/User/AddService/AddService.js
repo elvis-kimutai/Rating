@@ -50,13 +50,13 @@ const AddService = () => {
                     <label className="label">
                         <span className="label-text">Title</span>
                     </label>
-                    <input type="text" name='title' placeholder="Enter the restaurant Name" className="input input-bordered" required/>
+                    <input type="text" name='title' placeholder="Enter the pub Name" className="input input-bordered" required/>
                 </div>
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Service Image</span>
+                        <span className="label-text">pub Image</span>
                     </label>
-                    <input type="text" name='imageURL' placeholder="Enter service image url" className="input input-bordered" required/>
+                    <input type="text" name='imageURL' placeholder="Enter pub image url" className="input input-bordered" required/>
                 </div>
                 <div className="form-control">
                     <label className="label">
