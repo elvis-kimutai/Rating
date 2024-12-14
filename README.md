@@ -1,8 +1,6 @@
-# Food Monster (React website) V0.1.0
+#  (React website) V0.1.0
 
-### Live project link - https://food-monster-e9a9c.web.app/
-### Client side gitHub repository link - https://github.com/masudcodex/food-monster.git
-### Server side gitHub repository link - https://github.com/masudcodex/food-monster-server.git
+
 
 ## Developed with
   - React - A javascript library for building user interfaces
@@ -23,6 +21,6 @@
   
 Follow the following steps to get development environment running.
 
-  - git clone https://github.com/masudcodex/food-monster.git - to clone the repository from github
+  - git clone -https://github.com/elvis-kimutai/Rating.git  to clone the repository from github
   - npm install - to install node modules
   - npm start - to continue building applications
